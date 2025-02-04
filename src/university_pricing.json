@@ -1,0 +1,126 @@
+[
+    {
+        "College": "College of Health Sciences",
+        "Programs": [
+            {
+                "Program": "Dental Medicine",
+                "Price": "110,000 dhs/year"
+            },
+            {
+                "Program": "Medicine",
+                "Price": "120,000 dhs/year"
+            },
+            {
+                "Program": "General Nursing",
+                "Price": "26,000 dhs/year"
+            },
+            {
+                "Program": "Anesthesia and Resuscitation Nursing",
+                "Price": "26,000 dhs/year"
+            },
+            {
+                "Program": "Bachelor in Nutrition and Dietetics",
+                "Price": "62,000 dhs/year"
+            },
+            {
+                "Program": "Medical Imaging Technician",
+                "Price": "26,000 dhs/year"
+            },
+            {
+                "Program": "Laboratory Technician",
+                "Price": "26,000 dhs/year"
+            },
+            {
+                "Program": "Bachelor in Biotechnology and Health Sciences",
+                "Price": "62,000 dhs/year"
+            },
+            {
+                "Program": "Biomedical Engineering",
+                "Price": "62,000 dhs/year"
+            },
+            {
+                "Program": "Masters",
+                "Price": "62,000 dhs/year"
+            }
+        ],
+        "Registration Fees": "10,000 dhs"
+    },
+    {
+        "College": "College of Engineering & Architecture",
+        "Programs": [
+            {
+                "Program": "Aerospace & Automotive Engineering",
+                "Price": "66,000 dhs/year"
+            },
+            {
+                "Program": "Energy Engineering",
+                "Price": "66,000 dhs/year"
+            },
+            {
+                "Program": "Computer Engineering",
+                "Price": "66,000 dhs/year"
+            },
+            {
+                "Program": "Civil Engineering",
+                "Price": "66,000 dhs/year"
+            },
+            {
+                "Program": "Architecture",
+                "Price": "85,000 dhs/year"
+            },
+            {
+                "Program": "Masters",
+                "Price": "62,000 dhs/year"
+            }
+        ],
+        "Registration Fees": "10,000 dhs"
+    },
+    {
+        "College": "College of Social Sciences",
+        "Programs": [
+            {
+                "Program": "Law",
+                "Price": "62,000 dhs/year"
+            },
+            {
+                "Program": "Economics",
+                "Price": "62,000 dhs/year"
+            },
+            {
+                "Program": "Political Science",
+                "Price": "62,000 dhs/year"
+            },
+            {
+                "Program": "Psychology",
+                "Price": "62,000 dhs/year"
+            },
+            {
+                "Program": "Communication & Media",
+                "Price": "62,000 dhs/year"
+            },
+            {
+                "Program": "Masters",
+                "Price": "62,000 dhs/year"
+            }
+        ],
+        "Registration Fees": "10,000 dhs"
+    },
+    {
+        "College": "College of Management",
+        "Programs": [
+            {
+                "Program": "ITB",
+                "Price": "100,000 dhs/year"
+            },
+            {
+                "Program": "IPM",
+                "Price": "65,000 dhs/year"
+            },
+            {
+                "Program": "PGE & Masters",
+                "Price": "70,000 dhs/year"
+            }
+        ],
+        "Registration Fees": "20,000 dhs (ITB) | 10,000 dhs (Others)"
+    }
+]

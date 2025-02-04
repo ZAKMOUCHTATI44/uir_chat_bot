@@ -8,6 +8,10 @@ const client = new OpenAI({
 });
 
 export async function generateEmbedding(text: string) {
+
+  if (!text || text.trim() === "") {
+   return null;
+  }
   const embedding = await client.embeddings.create({
     model: "text-embedding-ada-002",
     input: text,

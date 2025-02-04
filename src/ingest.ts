@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { createCollection, uploadData } from "./lib/db";
 import { generateEmbedding } from "./lib/openai";
 import { scrape } from "./lib/scrape";
@@ -5,8 +6,9 @@ import { scrape } from "./lib/scrape";
 const urls = [
   "https://www.uir.ac.ma/",
   "https://www.uir.ac.ma/fr/page/scholarships",
+  "https://deluxe-daifuku-73f7f6.netlify.app/",
   "https://www.uir.ac.ma/fr/page/certificates",
-  // "https://www.uir.ac.ma/fr/page/library",
+  "https://www.uir.ac.ma/fr/page/library",
   "https://www.uir.ac.ma/fr/page/frais-de-scolarite",
   "https://www.uir.ac.ma/fr/page/calendrier-des-concours",
   "https://www.uir.ac.ma/fr/page/calendrier-de-la-rentree",
@@ -27,43 +29,58 @@ const urls = [
   "https://www.uir.ac.ma/fr/page/masters-2",
 ];
 
-async function ingest() {
-  let chunks: { text: string; $vector: number[]; url: string }[] = [];
+// Load extracted dataset
+const pricingData = JSON.parse(fs.readFileSync('./src/university_pricing.json', 'utf-8'));
 
+
+async function ingest() {
+  let chunks = [];
+
+
+  console.log("Start ")
+  // Process Web Scraped Data
   await Promise.all(
     urls.map(async (url) => {
       let data = await scrape(url);
-
       const embeddings = await Promise.all(
-        data.map(async (doc, index) => {
-          const embedding = await generateEmbedding(doc.pageContent);
-          return embedding;
-        })
+        data.map(async (doc) => await generateEmbedding(doc.pageContent))
       );
 
       chunks = chunks.concat(
-        data.map((doc, index) => {
-          return {
-            text: doc.pageContent,
-            $vector: embeddings[index].data[0].embedding,
-            url: url,
-          };
-        })
+        data.map((doc, index) => ({
+          text: doc.pageContent,
+          $vector: embeddings[index].data[0].embedding,
+          url: url,
+        }))
       );
     })
   );
+
+  // // Process Extracted Pricing Data
+  // const pricingEmbeddings = await Promise.all(
+  //   pricingData.map(async (doc) => await generateEmbedding(doc.Program))
+  // );
+
+  // chunks = chunks.concat(
+  //   pricingData.map((doc, index) => ({
+  //     text: `${doc.College} - ${doc.Program} costs ${doc["Price (Dhs/Year)"]}`,
+  //     $vector: pricingEmbeddings[index].data[0].embedding,
+  //     url: "local-dataset",
+  //   }))
+  // );
 
   await createCollection();
 
   await uploadData(
-    chunks.map((doc, index) => {
-      return {
-        $vector: doc.$vector,
-        text: doc.text,
-        source: doc.url,
-      };
-    })
+    chunks.map((doc) => ({
+      $vector: doc.$vector,
+      text: doc.text,
+      source: doc.url,
+    }))
   );
+
+  console.log("End ")
+
 }
 
 ingest();
