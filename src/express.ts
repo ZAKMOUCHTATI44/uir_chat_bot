@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express'
 import { askQuestion } from './answer'
 import { sendMessage } from './lib/sendMessage'
+require("dotenv").config();
 
 const app = express()
 
