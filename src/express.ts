@@ -16,7 +16,9 @@ app.post("/chat" , async (req : Request , res : Response) => {
 
 app.post('/uir-chat-bot' , async (req:Request , res :Response) => {
     const message = req.body;
-    sendMessage(message.From , message.Body)
+
+    console.log(JSON.stringify(message))
+    // sendMessage(message.From , message.Body)
 
     res.send("Hey")
 })
