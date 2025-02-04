@@ -3,7 +3,9 @@ import { askQuestion } from './answer'
 import { sendMessage } from './lib/sendMessage'
 require("dotenv").config();
 
+
 const app = express()
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json())
 
@@ -18,7 +20,7 @@ app.post('/uir-chat-bot' , async (req:Request , res :Response) => {
     const message = req.body;
 
     console.log(JSON.stringify(message))
-    // sendMessage(message.From , message.Body)
+    sendMessage(message.From , message.Body)
 
     res.send("Hey")
 })
