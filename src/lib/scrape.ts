@@ -15,7 +15,10 @@ export async function scrape(url: string) {
 
   const page = await context.newPage();
 
-  await page.goto(url);
+  // await page.goto(url);
+
+  await page.goto(url, { timeout: 60000, waitUntil: "domcontentloaded" });
+
 
   const text = await page.innerText("body");
   

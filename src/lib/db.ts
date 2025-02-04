@@ -6,10 +6,10 @@ require("dotenv").config();
 
 const client = new DataAPIClient(process.env.APIClient);
 const db = client.db(process.env.CLIENT_DB);
-const collection = db.collection('uirgpt');
+const collection = db.collection('uirgpt2');
 
 export async function createCollection() {
-  const res = await db.createCollection("uirgpt", {
+  const res = await db.createCollection("uirgpt2", {
     vector: {
       dimension: 1536,
       metric: "dot_product"
