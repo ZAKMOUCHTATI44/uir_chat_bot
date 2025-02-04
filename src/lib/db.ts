@@ -1,7 +1,8 @@
 
 
 
-import { DataAPIClient } from "@datastax/astra-db-ts";
+import { DataAPIClient } from "@datastax/astra-db-ts"
+require("dotenv").config();
 
 const client = new DataAPIClient(process.env.APIClient);
 const db = client.db(process.env.CLIENT_DB);
