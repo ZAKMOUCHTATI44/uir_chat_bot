@@ -1,0 +1,76 @@
+{
+  "College of Health Sciences": {
+    "fields": [
+      "Médecine Dentaire",
+      "Médecine",
+      "Infirmier Polyvalent",
+      "Infirmier en Anesthésie et Réanimation",
+      "Licence en Nutrition et Diététique",
+      "Technicien d'Imagerie Médicale",
+      "Technicien de laboratoire",
+      "Licence en Biotechnologie et Sciences de la Santé",
+      "Génie biomédical",
+      "Masters"
+    ],
+    "fees": {
+      "Médecine Dentaire": {"fees_per_year": "110000", "registration_fees": "10000"},
+      "Médecine": {"fees_per_year": "120000", "registration_fees": "10000"},
+      "Infirmier Polyvalent": {"fees_per_year": "26000", "registration_fees": "10000"},
+      "Infirmier en Anesthésie et Réanimation": {"fees_per_year": "26000", "registration_fees": "10000"},
+      "Licence en Nutrition et Diététique": {"fees_per_year": "62000", "registration_fees": "10000"},
+      "Technicien d'Imagerie Médicale": {"fees_per_year": "26000", "registration_fees": "10000"},
+      "Technicien de laboratoire": {"fees_per_year": "26000", "registration_fees": "10000"},
+      "Licence en Biotechnologie et Sciences de la Santé": {"fees_per_year": "62000", "registration_fees": "10000"},
+      "Génie biomédical": {"fees_per_year": "62000", "registration_fees": "10000"},
+      "Masters": {"fees_per_year": "62000", "registration_fees": "10000"}
+    }
+  },
+  "College of Engineering & Architecture": {
+    "fields": [
+      "Ingénierie Aérospatiale & Automobile",
+      "Ingénierie de l'Energie",
+      "Ingénierie Informatique",
+      "Ingénierie Génie civil",
+      "Architecture",
+      "Masters"
+    ],
+    "fees": {
+      "Ingénierie Aérospatiale & Automobile": {"fees_per_year": "66000", "registration_fees": "10000"},
+      "Ingénierie de l'Energie": {"fees_per_year": "66000", "registration_fees": "10000"},
+      "Ingénierie Informatique": {"fees_per_year": "66000", "registration_fees": "10000"},
+      "Ingénierie Génie civil": {"fees_per_year": "66000", "registration_fees": "10000"},
+      "Architecture": {"fees_per_year": "85000", "registration_fees": "10000"},
+      "Masters": {"fees_per_year": "62000", "registration_fees": "10000"}
+    }
+  },
+  "College of Social Sciences": {
+    "fields": [
+      "Droit",
+      "Economie",
+      "Sciences Politiques",
+      "Psychologie",
+      "Communication & Médias",
+      "Masters"
+    ],
+    "fees": {
+      "Droit": {"fees_per_year": "62000", "registration_fees": "10000"},
+      "Economie": {"fees_per_year": "62000", "registration_fees": "10000"},
+      "Sciences Politiques": {"fees_per_year": "62000", "registration_fees": "10000"},
+      "Psychologie": {"fees_per_year": "62000", "registration_fees": "10000"},
+      "Communication & Médias": {"fees_per_year": "62000", "registration_fees": "10000"},
+      "Masters": {"fees_per_year": "62000", "registration_fees": "10000"}
+    }
+  },
+  "College of Management": {
+    "fields": [
+      "ITB",
+      "IPM",
+      "PGE & Masters"
+    ],
+    "fees": {
+      "ITB": {"fees_per_year": "100000", "registration_fees": "20000"},
+      "IPM": {"fees_per_year": "65000", "registration_fees": "10000"},
+      "PGE & Masters": {"fees_per_year": "70000", "registration_fees": "10000"}
+    }
+  }
+}

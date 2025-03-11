@@ -8,9 +8,8 @@ const client = new OpenAI({
 });
 
 export async function generateEmbedding(text: string) {
-
   if (!text || text.trim() === "") {
-   return null;
+    return null;
   }
   const embedding = await client.embeddings.create({
     model: "text-embedding-ada-002",
@@ -19,19 +18,34 @@ export async function generateEmbedding(text: string) {
 
   return embedding;
 }
-
 export async function generateResponse(question: string, context: string[]) {
   const response = await client.chat.completions.create({
     model: "gpt-4o",
     messages: [
       {
+        role: "system",
+        content:
+          "You are an assistant from Université Internationale de Rabat, specializing in providing accurate and helpful information. Use the provided context to answer the question without mentioning the context explicitly.",
+      },
+      {
         role: "user",
-        content: `You are a representative of L’Université Internationale de Rabat. Respond naturally and professionally, as if you were a human working at the university. Keep your answer clear, concise, and suitable for a WhatsApp message. Provide direct and relevant information without suggesting visiting the website or contacting the university. **Do not start with a greeting like "Bonjour" or "Hello".**
-
-        QUESTION: ${question}.`,
+        content: `CONTEXT: ${context.join(" \n ")} \n\n QUESTION: ${question}`,
       },
     ],
   });
 
-  return response.choices[0].message.content.replace(/^(Bonjour|Hello)[!,. ]*/i, "");
+  return response.choices[0].message.content;
 }
+// export async function generateResponse(question: string, context: string[]) {
+//   const response = await client.chat.completions.create({
+//     model: "gpt-4o",
+//     messages: [
+//       {
+//         role: "user",
+//         content: `You are a representative of L’Université Internationale de Rabat. Respond naturally and professionally, as if you were a human working at the university. Keep your answer clear, concise, and suitable for a WhatsApp message. Provide direct and relevant information without suggesting visiting the website or contacting the university. **Do not start with a greeting like "Bonjour" or "Hello".**
+//         QUESTION: ${question}.`,
+//       },
+//     ],
+//   });
+//   return response.choices[0].message.content.replace(/^(Bonjour|Hello)[!,. ]*/i, "");
+// }

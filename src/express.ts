@@ -20,13 +20,18 @@ app.post("/chat", async (req: Request, res: Response) => {
   }
 });
 
+app.post("/chat-bot", (req: Request, res: Response) => {
+  const { question } = req.body;
+
+  res.json({ question: question });
+});
 app.post("/uir-chat-bot", async (req: Request, res: Response) => {
   const message = req.body;
 
   if (message.MediaContentType0 === "audio/ogg") {
     const question = await handleAudio(message.MediaUrl0);
 
-    console.log(question)
+    console.log(question);
     sendMessage(message.From, question);
   } else {
     sendMessage(message.From, message.Body);

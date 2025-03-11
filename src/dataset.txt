@@ -1,0 +1,86 @@
+# General Information
+institution: Université Internationale de Rabat
+location: Rabat, Morocco
+website: https://www.uir.ac.ma/
+contact_email: info@uir.ac.ma
+phone_number: +212 5 30 10 30 00
+
+# Faculties and Schools
+faculties:
+  - College of Health Sciences
+  - College of Engineering & Architecture
+  - College of Social Sciences
+  - College of Management
+
+# Programs and Tuition Fees
+programs:
+  College of Health Sciences:
+    - Médecine Dentaire: 110,000 MAD/year + 10,000 MAD enrollment fee
+    - Médecine: 120,000 MAD/year + 10,000 MAD enrollment fee
+    - Infirmier Polyvalent: 26,000 MAD/year + 10,000 MAD enrollment fee
+    - Infirmier en Anesthésie et Réanimation: 26,000 MAD/year + 10,000 MAD enrollment fee
+    - Licence en Nutrition et Diététique: 62,000 MAD/year + 10,000 MAD enrollment fee
+    - Technicien d’Imagerie Médicale: 26,000 MAD/year + 10,000 MAD enrollment fee
+    - Technicien de laboratoire: 26,000 MAD/year + 10,000 MAD enrollment fee
+    - Licence en Biotechnologie et Sciences de la Santé: 62,000 MAD/year + 10,000 MAD enrollment fee
+    - Génie biomédical: 62,000 MAD/year + 10,000 MAD enrollment fee
+    - Masters: 62,000 MAD/year + 10,000 MAD enrollment fee
+
+  College of Engineering & Architecture:
+    - Ingénierie Aérospatiale et Automobile: 66,000 MAD/year + 10,000 MAD enrollment fee
+    - Ingénierie de l’Énergie: 66,000 MAD/year + 10,000 MAD enrollment fee
+    - Ingénierie Informatique: 66,000 MAD/year + 10,000 MAD enrollment fee
+    - Ingénierie Génie civil: 66,000 MAD/year + 10,000 MAD enrollment fee
+    - Architecture: 85,000 MAD/year + 10,000 MAD enrollment fee
+    - Masters: 62,000 MAD/year + 10,000 MAD enrollment fee
+
+  College of Social Sciences:
+    - Droit: 62,000 MAD/year + 10,000 MAD enrollment fee
+    - Économie: 62,000 MAD/year + 10,000 MAD enrollment fee
+    - Sciences Politiques: 62,000 MAD/year + 10,000 MAD enrollment fee
+    - Psychologie: 62,000 MAD/year + 10,000 MAD enrollment fee
+    - Communication & Médias: 62,000 MAD/year + 10,000 MAD enrollment fee
+    - Masters: 62,000 MAD/year + 10,000 MAD enrollment fee
+
+  College of Management:
+    - ITB: 100,000 MAD/year + 20,000 MAD enrollment fee
+    - IPM: 65,000 MAD/year + 10,000 MAD enrollment fee
+    - PGE & Masters: 70,000 MAD/year + 10,000 MAD enrollment fee
+
+# Admission Requirements
+admission:
+  undergraduate:
+    - High school diploma or equivalent
+    - Entrance exam/interview
+    - Language proficiency (French/English)
+  graduate:
+    - Bachelor's degree
+    - Application form submission
+    - Entrance test/interview
+
+# Scholarships
+scholarships:
+  - Merit-based scholarships
+  - Need-based financial aid
+  - International student scholarships
+
+# Student Life
+campus_facilities:
+  - Library
+  - Student housing
+  - Cafeterias & restaurants
+  - Sports complex
+  - Innovation labs
+
+# Events and Activities
+events:
+  - Annual Job Fair
+  - Startup Incubator Programs
+  - Academic Conferences
+  - Cultural Festivals
+
+# Contact Information
+contact:
+  admissions_office: "+212 5 30 10 30 10"
+  student_services: "+212 5 30 10 30 20"
+  career_center: "+212 5 30 10 30 30"

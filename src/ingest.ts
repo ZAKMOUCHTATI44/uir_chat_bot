@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from "fs";
 import { createCollection, uploadData } from "./lib/db";
 import { generateEmbedding } from "./lib/openai";
 import { scrape } from "./lib/scrape";
@@ -29,15 +29,12 @@ const urls = [
   "https://www.uir.ac.ma/fr/page/masters-2",
 ];
 
-// Load extracted dataset
-const pricingData = JSON.parse(fs.readFileSync('./src/university_pricing.json', 'utf-8'));
-
+const TEXT_DATASET_PATH = "./dataset.txt";
 
 async function ingest() {
   let chunks = [];
 
-
-  console.log("Start ")
+  console.log("Start ");
   // Process Web Scraped Data
   await Promise.all(
     urls.map(async (url) => {
@@ -56,31 +53,32 @@ async function ingest() {
     })
   );
 
-  // // Process Extracted Pricing Data
-  // const pricingEmbeddings = await Promise.all(
-  //   pricingData.map(async (doc) => await generateEmbedding(doc.Program))
-  // );
+  if (fs.existsSync(TEXT_DATASET_PATH)) {
+    const fileContent = fs.readFileSync(TEXT_DATASET_PATH, "utf-8");
+    const textChunks = fileContent
+      .split("\n")
+      .filter((line) => line.trim() !== ""); // Split by line
 
-  // chunks = chunks.concat(
-  //   pricingData.map((doc, index) => ({
-  //     text: `${doc.College} - ${doc.Program} costs ${doc["Price (Dhs/Year)"]}`,
-  //     $vector: pricingEmbeddings[index].data[0].embedding,
-  //     url: "local-dataset",
-  //   }))
-  // );
+    const embeddings = await Promise.all(
+      textChunks.map(async (text) => await generateEmbedding(text))
+    );
+
+    chunks = chunks.concat(
+      textChunks.map((text, index) => ({
+        text,
+        $vector: embeddings[index].data[0].embedding,
+        source: "dataset.txt",
+      }))
+    );
+  } else {
+    console.warn(`Dataset file not found at ${TEXT_DATASET_PATH}`);
+  }
+
 
   await createCollection();
+  await uploadData(chunks);
 
-  await uploadData(
-    chunks.map((doc) => ({
-      $vector: doc.$vector,
-      text: doc.text,
-      source: doc.url,
-    }))
-  );
-
-  console.log("End ")
-
+  console.log("End ");
 }
 
 ingest();
