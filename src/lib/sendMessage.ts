@@ -9,7 +9,7 @@ export async function sendMessage(sendTo: string , message : string) {
   client.messages
     .create({
       body: messaegBody,
-      from: "whatsapp:+212717962498",
+      from: "whatsapp:+212719507879",
       to: sendTo,
     })
     .then((res) => {
