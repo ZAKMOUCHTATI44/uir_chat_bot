@@ -9,6 +9,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
+
+app.get("/" , (req:Request , res : Response) => {
+  res.send("HelloWorld")
+})
+
 app.post("/chat", async (req: Request, res: Response) => {
   const { message } = req.body;
 
