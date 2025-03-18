@@ -7,7 +7,7 @@
     "ingest": "ts-node src/ingest.ts",
     "dev": "nodemon src/express.ts",
     "answer": "ts-node src/answer.ts",
-    "start": "pm2 delete chatUir; pm2 start --name chatUir \" npx ts-node --transpile-only src/express.ts\""
+    "start": "ts-node src/express.ts"
   },
   "keywords": [],
   "author": "",

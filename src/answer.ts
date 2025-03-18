@@ -7,7 +7,7 @@ export async function askQuestion(question: string) {
   const embedding = await generateEmbedding(question);
 
   const queryRes = await queryDatabase(embedding.data[0].embedding);
-  // console.log(queryRes);
+  console.log(queryRes);
 
   const response = await generateResponse(
     question,

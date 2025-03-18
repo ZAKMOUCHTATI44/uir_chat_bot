@@ -6,7 +6,6 @@ import { scrape } from "./lib/scrape";
 const urls = [
   "https://www.uir.ac.ma/",
   "https://www.uir.ac.ma/fr/page/scholarships",
-  "https://deluxe-daifuku-73f7f6.netlify.app/",
   "https://www.uir.ac.ma/fr/page/certificates",
   "https://www.uir.ac.ma/fr/page/library",
   "https://www.uir.ac.ma/fr/page/frais-de-scolarite",
@@ -26,7 +25,8 @@ const urls = [
   "https://www.uir.ac.ma/fr/page/transports",
   "https://www.uir.ac.ma/fr/page/ihecs",
   "https://www.uir.ac.ma/fr/page/claims-management",
-  "https://www.uir.ac.ma/fr/page/masters-2",
+  "https://www.uir.ac.ma/fr/page/masters-2",,
+'  https://www.uir.ac.ma/fr/page/frais-de-concours-1'
 ];
 
 const TEXT_DATASET_PATH = "./dataset.txt";
@@ -53,26 +53,26 @@ async function ingest() {
     })
   );
 
-  if (fs.existsSync(TEXT_DATASET_PATH)) {
-    const fileContent = fs.readFileSync(TEXT_DATASET_PATH, "utf-8");
-    const textChunks = fileContent
-      .split("\n")
-      .filter((line) => line.trim() !== ""); // Split by line
+  // if (fs.existsSync(TEXT_DATASET_PATH)) {
+  //   const fileContent = fs.readFileSync(TEXT_DATASET_PATH, "utf-8");
+  //   const textChunks = fileContent
+  //     .split("\n")
+  //     .filter((line) => line.trim() !== ""); // Split by line
 
-    const embeddings = await Promise.all(
-      textChunks.map(async (text) => await generateEmbedding(text))
-    );
+  //   const embeddings = await Promise.all(
+  //     textChunks.map(async (text) => await generateEmbedding(text))
+  //   );
 
-    chunks = chunks.concat(
-      textChunks.map((text, index) => ({
-        text,
-        $vector: embeddings[index].data[0].embedding,
-        source: "dataset.txt",
-      }))
-    );
-  } else {
-    console.warn(`Dataset file not found at ${TEXT_DATASET_PATH}`);
-  }
+  //   chunks = chunks.concat(
+  //     textChunks.map((text, index) => ({
+  //       text,
+  //       $vector: embeddings[index].data[0].embedding,
+  //       source: "dataset.txt",
+  //     }))
+  //   );
+  // } else {
+  //   console.warn(`Dataset file not found at ${TEXT_DATASET_PATH}`);
+  // }
 
 
   await createCollection();
